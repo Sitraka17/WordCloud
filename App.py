@@ -23,13 +23,7 @@ df = pd.DataFrame({
 })
 st.write(df)
 
-# Plot
-import matplotlib.pyplot as plt
-import numpy as np
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
-plt.plot(x, y)
-st.pyplot(plt)
+
 
 edited_df = st.experimental_data_editor(df)
 favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
