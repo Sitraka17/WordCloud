@@ -31,13 +31,3 @@ y = np.sin(x)
 plt.plot(x, y)
 st.pyplot(plt)
 
-# Checkbox
-if st.checkbox("Show/hide"):
-  st.write("You checked the checkbox")
-
-# Selectbox
-option = st.selectbox(
-  "Select an option",
-  ["Option 1", "Option 2", "Option 3"]
-)
-st.write("You selected:", option)
