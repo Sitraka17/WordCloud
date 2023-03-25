@@ -2,14 +2,19 @@ import streamlit as st
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 
-# Create some sample text
-text = 'Fun, fun, awesome, awesome, tubular, astounding, superb, great, amazing, amazing, amazing, amazing'
+# Title
+st.title("Word Cloud Generator")
 
-# Create and generate a word cloud image:
+# Text input
+text = st.text_input("Enter some text")
+
+# Generate word cloud
 wordcloud = WordCloud().generate(text)
 
-# Display the generated image:
-plt.imshow(wordcloud, interpolation='bilinear')
-plt.axis("off")
-plt.show()
-st.pyplot()
+# Display word cloud using Matplotlib
+if text:
+    st.set_option('deprecation.showPyplotGlobalUse', False) # to avoid warning message
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis("off")
+    st.pyplot()
+
