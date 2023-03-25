@@ -31,3 +31,15 @@ y = np.sin(x)
 plt.plot(x, y)
 st.pyplot(plt)
 
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
+# Create a word cloud from a string of text
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+wordcloud = WordCloud().generate(text)
+
+# Display the word cloud using Matplotlib
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
+plt.show()
+
