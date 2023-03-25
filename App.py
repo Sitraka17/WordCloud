@@ -1,31 +1,20 @@
 import streamlit as st
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 
 # Title
-st.title("My Streamlit App")
+st.title("Word Cloud Generator")
 
-# Header
-st.header("This is a header")
+# Text input
+text = st.text_input("Enter some text")
 
-# Subheader
-st.subheader("This is a subheader")
+# Generate word cloud
+wordcloud = WordCloud().generate(text)
 
-# Text
-st.write("This is some text.")
-
-# Markdown
-st.markdown("This is some **bold** text.")
-
-# Dataframe
-import pandas as pd
-df = pd.DataFrame({
-  'column 1': [1, 2, 3, 4],
-  'column 2': ['a', 'b', 'c', 'd']
-})
-st.write(df)
-
-
-
-edited_df = st.experimental_data_editor(df)
-favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
-st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
+# Display word cloud using Matplotlib
+if text:
+    st.set_option('deprecation.showPyplotGlobalUse', False) # to avoid warning message
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis("off")
+    st.pyplot()
 
